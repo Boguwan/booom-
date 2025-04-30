@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public float fireballSpeed = 10f;
     public float angleBetweenFireballs = 20f;
     public float fireballLifetime = 2f;
+    public int fireballCount = 3;
 
     private Animator animator;
 
@@ -36,24 +37,26 @@ public class PlayerAttack : MonoBehaviour
 
     void ShootFireballs()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = (mousePos - (Vector2)transform.position).normalized;
 
-        float[] angles = { -angleBetweenFireballs / 2, 0, angleBetweenFireballs / 2 };
+        float startAngle = -(fireballCount - 1) * angleBetweenFireballs / 2;
 
-        foreach (float angle in angles)
+        for (int i = 0; i < fireballCount; i++)
         {
-            Quaternion rotation = Quaternion.Euler(0, 0, angle);
-            Vector2 finalDirection = rotation * direction;
+            float currentAngle = startAngle + i * angleBetweenFireballs;
+            Quaternion rotation = Quaternion.Euler(0, 0, currentAngle);
+            Vector2 rotatedDirection = rotation * dir;
 
-            // 实例化火球（无Rigidbody）
-            GameObject fireball = Instantiate(fireballPrefab,
+            GameObject fb = Instantiate(fireballPrefab,
                 transform.position,
-                Quaternion.FromToRotation(Vector2.right, finalDirection));
+                Quaternion.Euler(0, 0, currentAngle + Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
 
-            // 直接控制Transform移动（新增脚本）
-            FireballMovement fm = fireball.AddComponent<FireballMovement>();
-            fm.Init(finalDirection, fireballSpeed, fireballLifetime);
+            fb.AddComponent<FireballMovement>().Init(
+                rotatedDirection,
+                fireballSpeed,
+                fireballLifetime
+            );
         }
     }
     void AnimationChange()
