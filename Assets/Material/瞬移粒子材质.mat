@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "\u77AC\u79FB\u7C92\u5B50\u6750\u8D28"
+  m_Shader: {fileID: 4800000, guid: 54b9fde3326514445907028b650cffc0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _COLORRGBA1_RGBA
+  - _COLORRGBA2_RGBA
+  - _COLORRGBA3_RGBA
+  - _COLORRGBA_RGBA
+  - _CUSTOMDATA_ON
+  - _SCREENOUTLINEOPEN_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9478d7abca27ef44ebfece03de9d6db1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScreenOutLineTex:
+        m_Texture: {fileID: 2800000, guid: adce194de821bd642a83ef68b2bc8740, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScreenOutLineTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AngleShrink: 0.4715825
+    - _AngleStroke: 0.2304192
+    - _ColorRGBA: 0
+    - _ColorRGBA1: 0
+    - _ColorRGBA2: 0
+    - _ColorRGBA3: 0
+    - _CustomData: 1
+    - _CustomData1: 0
+    - _EnableExternalAlpha: 0
+    - _MainTex_X: 0
+    - _MainTex_X1: 0
+    - _MainTex_Y: 0
+    - _MainTex_Y1: 0
+    - _Open: 0
+    - _OutLine_X: 0
+    - _OutLine_X1: 0
+    - _OutLine_Y: 0
+    - _OutLine_Y1: 0
+    - _ScreenOpen: 0
+    - _ScreenOpen1: 0
+    - _ScreenOutLineOpen: 1
+    - _ScreenOutLineOpen1: 0
+    - _ScreenPositionMainTex_X: 1
+    - _ScreenPositionMainTex_X1: 1
+    - _ScreenPositionMainTex_Y: 1
+    - _ScreenPositionMainTex_Y1: 1
+    - _ScreenPositionOutLine_X: 1
+    - _ScreenPositionOutLine_X1: 1
+    - _ScreenPositionOutLine_Y: 1
+    - _ScreenPositionOutLine_Y1: 1
+    - _Shrink: 0.987
+    - _Stroke: 1.238479
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.48835889, g: 0.828392, b: 6.211942, a: 1}
+    - _OutlineColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
