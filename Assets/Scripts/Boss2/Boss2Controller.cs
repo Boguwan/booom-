@@ -8,6 +8,9 @@ public class Boss2Controller : MonoBehaviour
     public FireballAttack fireballAttack;
     public Transform playerTransform;
 
+     private LaserAttack laserAttack;
+    private CircleAttack circleAttack;
+
     void Start()
     {
         // 原有组件获取
