@@ -22,7 +22,7 @@ public class PlayerDodge : MonoBehaviour
     }
     void HandleDodge()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && CanDodge())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && CanDodge())
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mouseWorldPos - (Vector2)transform.position).normalized;
