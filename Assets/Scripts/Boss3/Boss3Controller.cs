@@ -20,10 +20,16 @@ public class Boss3Controller : MonoBehaviour
     public Transform playerTransform;
     // 分裂时分身所在圆的半径
     public float splitRadius = 5f;
+    private bool isSplit=false;
+
+    public float moveSpeed = 3f;
+    public float wanderRadius = 2f;
+    private Vector2 targetPosition;
 
     // 在脚本实例被启用时调用，初始化 Boss 的当前生命值并开始发射剑刃的协程
     void Start()
     {
+        SetNewDestination();
         // 将当前生命值初始化为最大生命值
         currentHealth = maxHealth;
         // 启动发射剑刃的协程
@@ -33,12 +39,29 @@ public class Boss3Controller : MonoBehaviour
     // 每帧调用一次，检查 Boss 的生命值是否降到一半以下，如果是则触发分裂
     void Update()
     {
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            targetPosition,
+            moveSpeed * Time.deltaTime
+        );
+
+        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            SetNewDestination();
+        }
         // 检查当前生命值是否小于等于最大生命值的一半且大于 0
-        if (currentHealth <= maxHealth / 2 && currentHealth > 0)
+        if (currentHealth <= maxHealth / 2 && currentHealth > 0&&!isSplit)
         {
             // 调用分裂方法
             Split();
+            isSplit=true;
         }
+    }
+
+    void SetNewDestination()
+    {
+        Vector2 randomDirection = Random.insideUnitCircle * wanderRadius;
+        targetPosition = (Vector2)transform.position + randomDirection;
     }
 
     /// <summary>
@@ -81,15 +104,17 @@ public class Boss3Controller : MonoBehaviour
         if (currentHealth <= 0)
         {
             // 调用死亡方法
-            Die();
+            StartCoroutine(Die());
         }
     }
+
 
     /// <summary>
     /// 分裂方法，当 Boss 的生命值降到一半以下时，将 Boss 分裂成五个分身，以玩家为圆心的圆上生成
     /// </summary>
     void Split()
     {
+        // 计算每个分身之间的角度间隔
         float angleStep = 360f / 5;
         for (int i = 0; i < 5; i++)
         {
@@ -112,16 +137,30 @@ public class Boss3Controller : MonoBehaviour
             // 为新 Boss 分身设置玩家 Transform 组件
             newBossController.playerTransform = playerTransform;
         }
-        // 销毁当前 Boss 对象
+        // 启动协程等待子弹发射完毕后销毁当前 Boss 对象
+        StartCoroutine(WaitForBulletsAndDestroy());
+    }
+
+    IEnumerator WaitForBulletsAndDestroy()
+    {
+        Boss3Minion minionController = GetComponent<Boss3Minion>();
+        if (minionController != null)
+        {
+            yield return StartCoroutine(minionController.FireBullets());
+        }
         Destroy(gameObject);
     }
 
     /// <summary>
-    /// 死亡方法，当 Boss 的生命值降为 0 时，销毁 Boss 对象
+    /// 死亡方法，当 Boss 的生命值降为 0 时，等待子弹发射完毕后销毁 Boss 对象
     /// </summary>
-    void Die()
+    IEnumerator Die()
     {
-        // 销毁当前 Boss 对象
+        Boss3Minion minionController = GetComponent<Boss3Minion>();
+        if (minionController != null)
+        {
+            yield return StartCoroutine(minionController.FireBullets());
+        }
         Destroy(gameObject);
     }
 }

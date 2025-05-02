@@ -827,9 +827,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3657086815853964241, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      propertyPath: splitRadius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657086815853964241, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1720749978}
+    - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      propertyPath: bulletCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4011697518325817924, guid: 90448e00b815dca4cace894567439ce9, type: 3}
+    - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      propertyPath: rotationSpeed
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 6726178574474457664, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4

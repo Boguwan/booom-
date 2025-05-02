@@ -7,7 +7,7 @@ public class PlayerRebound : MonoBehaviour
     // 表示玩家是否可以进行弹反的标志
     public bool canParry = false;
     // 弹反的有效时间，单位为秒
-    private float parryTime = 10f;
+    private float parryTime = 0.5f;
 
     // 每帧调用一次，检查玩家是否按下 E 键，如果按下则启动弹反协程
     void Update()
@@ -47,6 +47,7 @@ public class PlayerRebound : MonoBehaviour
             Rigidbody2D swordRb = other.GetComponent<Rigidbody2D>();
             // 计算弹反的方向，从剑刃指向玩家
             Vector2 direction = ( other.transform.position-transform.position ).normalized;
+            other.transform.localScale= new Vector3(Mathf.Abs(other.transform.localScale.x),-other.transform.localScale.y,other.transform.localScale.z);
             // 设置剑刃的速度，使其向弹反方向移动
             swordRb.velocity = direction * 10f;
             // 将剑刃的标签设置为 "ParriedSword"，表示已被弹反
