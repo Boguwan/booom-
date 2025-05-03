@@ -9,12 +9,20 @@ public class PlayerRebound : MonoBehaviour
     // 弹反的有效时间，单位为秒
     private float parryTime = 0.5f;
 
+    private Animator animator;
+
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     // 每帧调用一次，检查玩家是否按下 E 键，如果按下则启动弹反协程
     void Update()
     {
         // 检查玩家是否按下 E 键
         if (Input.GetKeyDown(KeyCode.E))
         {
+            animator.SetTrigger("isAttack");
             // 启动弹反协程
             StartCoroutine(EnableParry());
         }

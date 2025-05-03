@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - ParriedSword
   - Boss
+  - Fireball
   layers:
   - Default
   - TransparentFX

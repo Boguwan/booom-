@@ -9,15 +9,17 @@ public class PlayerAOE : MonoBehaviour
     public float magicCooldown = 5f;
     private float lastMagicTime=0f;
 
-
+    private Animator animator;
     private void Start()
     {
+        animator = GetComponent<Animator>();
         lastMagicTime = Time.time-magicCooldown;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)&&CanMagic())
         {
+            animator.SetTrigger("isAttack");
             Instantiate(spellCirclePrefab, transform.position, Quaternion.identity);
             lastMagicTime = Time.time;
         }

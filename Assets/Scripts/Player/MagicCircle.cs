@@ -102,6 +102,10 @@ public class MagicCircle : MonoBehaviour
         {
             enemiesInRange.Add(enemy);
         }
+        if (other.CompareTag("Fireball"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)

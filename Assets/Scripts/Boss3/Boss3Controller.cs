@@ -26,9 +26,13 @@ public class Boss3Controller : MonoBehaviour
     public float wanderRadius = 2f;
     private Vector2 targetPosition;
 
+    private Animator animator;
+
     // 在脚本实例被启用时调用，初始化 Boss 的当前生命值并开始发射剑刃的协程
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         SetNewDestination();
         // 将当前生命值初始化为最大生命值
         currentHealth = maxHealth;
@@ -64,6 +68,11 @@ public class Boss3Controller : MonoBehaviour
         targetPosition = (Vector2)transform.position + randomDirection;
     }
 
+    public void AnimatorChange()
+    {
+        animator.SetTrigger("isAttack");
+    }
+
     /// <summary>
     /// 协程方法，用于每隔一定时间发射剑刃
     /// </summary>
@@ -75,6 +84,8 @@ public class Boss3Controller : MonoBehaviour
         {
             // 等待指定的时间间隔
             yield return new WaitForSeconds(fireRate);
+
+            AnimatorChange();
             // 计算从发射点到玩家的方向
             Vector2 direction = (playerTransform.position - firePoint.position).normalized;
             // 计算旋转角度

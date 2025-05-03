@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: -2091501691971847707}
   m_Layer: 0
   m_Name: "\u9AB7\u9AC5\u6CD5\u5E08\u5F39\u9053"
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
