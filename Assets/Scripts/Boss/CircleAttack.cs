@@ -5,7 +5,7 @@ using UnityEngine;
 public class CircleAttack : MonoBehaviour
 {
     public GameObject redCirclePrefab;
-    public int circleCount = 5;
+    public int circleCount = 10;
     public float circleRadius = 1f;
 
     public void StartCircleAttack()
@@ -52,4 +52,5 @@ public class CircleAttack : MonoBehaviour
             Destroy(circle);
         }
     }
+
 }

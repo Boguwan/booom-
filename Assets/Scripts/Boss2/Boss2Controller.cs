@@ -8,11 +8,17 @@ public class Boss2Controller : MonoBehaviour
     public FireballAttack fireballAttack;
     public Transform playerTransform;
 
+     private LaserAttack laserAttack;
+    private CircleAttack circleAttack;
+
+    private Animator animator;
+
     void Start()
     {
-        // 原有组件获取
+        animator = GetComponent<Animator>();
+        
         fireballAttack = GetComponent<FireballAttack>();
-        // 需要确保玩家对象有"Player"标签
+        
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(AttackCycle());
     }
@@ -27,16 +33,24 @@ public class Boss2Controller : MonoBehaviour
             {
                 case 0:
                     fireballAttack.LaunchFireballAttack(playerTransform);
+                    AnimatorChange();
                     break;
                 case 1:
                     fireballAttack.LaunchFireballAttack(playerTransform);
+                    AnimatorChange();
                     break;
                 case 2:
                     fireballAttack.LaunchFireballAttack(playerTransform);
+                    AnimatorChange();
                     break;
             }
 
             yield return new WaitForSeconds(timeBetweenAttacks);
         }
+    }
+
+    public void AnimatorChange()
+    {
+        animator.SetTrigger("isAttack");
     }
 }

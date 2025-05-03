@@ -25,11 +25,11 @@ public class BossController : MonoBehaviour
             // 随机选择攻击方式
             if (Random.Range(0, 2) == 0)
             {
-                LaserBeamAttack.StartLaserAttack(PlayerMovement.instance.transform.position);
+                laserAttack.StartLaserAttack();
             }
             else
             {
-                LaserBeamAttack.StartLaserAttack(PlayerMovement.instance.transform.position);
+                circleAttack.StartCircleAttack();
             }
 
             yield return new WaitForSeconds(timeBetweenAttacks);

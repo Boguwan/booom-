@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Boss1Before.unity
+    guid: 666f1fc9fbb9a79419020fbcba53d95b
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Boss1After.unity
+    guid: a526e5c5e5b5b114c90882ec8c5d1bbc
+  - enabled: 1
+    path: Assets/Scenes/Boss2Before.unity
+    guid: d0aabc8b1c9fb434699b8ffa3d57a490
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ec0edaf8c61ec5449a172a6d8af21e13
+  - enabled: 1
+    path: Assets/Scenes/Boss2After.unity
+    guid: a8e06e7a68b0cb6449e1bfdf0aa7914f
+  - enabled: 1
+    path: Assets/Scenes/Boss3Before.unity
+    guid: 273dec3f37aca91408ea4dbfb7916777
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: a17c2b582af0e8040b424d8996f7cbfc
+  - enabled: 1
+    path: Assets/Scenes/Boss3After.unity
+    guid: 055d3e3180f5db243b5b8af7daa7474a
   m_configObjects: {}
