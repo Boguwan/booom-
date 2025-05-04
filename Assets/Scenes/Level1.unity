@@ -646,15 +646,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1190282389314059757, guid: 63d07967f6127364389c440a78897113, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1380670682349028530, guid: 63d07967f6127364389c440a78897113, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2230368520007364061, guid: 63d07967f6127364389c440a78897113, type: 3}
       propertyPath: m_Name
       value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629493269864091854, guid: 63d07967f6127364389c440a78897113, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
