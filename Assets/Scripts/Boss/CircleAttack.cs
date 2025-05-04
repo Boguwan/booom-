@@ -19,7 +19,7 @@ public class CircleAttack : MonoBehaviour
         List<GameObject> circles = new List<GameObject>();
         for (int i = 0; i < circleCount; i++)
         {
-            Vector2 randomPos = (Vector2)transform.position + Random.insideUnitCircle * 5f;
+            Vector2 randomPos = (Vector2)transform.position + Random.insideUnitCircle * 20f;
             GameObject circle = Instantiate(redCirclePrefab, randomPos, Quaternion.identity);
             circles.Add(circle);
         }
