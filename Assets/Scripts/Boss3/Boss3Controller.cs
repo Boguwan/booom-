@@ -22,9 +22,7 @@ public class Boss3Controller : MonoBehaviour
     public float splitRadius = 5f;
     private bool isSplit=false;
 
-    public float moveSpeed = 3f;
-    public float wanderRadius = 2f;
-    private Vector2 targetPosition;
+
 
     private Animator animator;
 
@@ -33,7 +31,7 @@ public class Boss3Controller : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        SetNewDestination();
+
         // 将当前生命值初始化为最大生命值
         currentHealth = maxHealth;
         // 启动发射剑刃的协程
@@ -43,16 +41,7 @@ public class Boss3Controller : MonoBehaviour
     // 每帧调用一次，检查 Boss 的生命值是否降到一半以下，如果是则触发分裂
     void Update()
     {
-        transform.position = Vector2.MoveTowards(
-            transform.position,
-            targetPosition,
-            moveSpeed * Time.deltaTime
-        );
-
-        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            SetNewDestination();
-        }
+        TurnRound();
         // 检查当前生命值是否小于等于最大生命值的一半且大于 0
         if (currentHealth <= maxHealth / 2 && currentHealth > 0&&!isSplit)
         {
@@ -62,12 +51,19 @@ public class Boss3Controller : MonoBehaviour
         }
     }
 
-    void SetNewDestination()
-    {
-        Vector2 randomDirection = Random.insideUnitCircle * wanderRadius;
-        targetPosition = (Vector2)transform.position + randomDirection;
-    }
 
+    public void TurnRound()
+    {
+        //玩家在怪物右边
+        if (PlayerMovement.instance.transform.position.x - transform.position.x >= 0.1)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (PlayerMovement.instance.transform.position.x - transform.position.x < 0.1)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
     public void AnimatorChange()
     {
         animator.SetTrigger("isAttack");

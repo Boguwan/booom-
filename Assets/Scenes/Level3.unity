@@ -157,6 +157,26 @@ Transform:
   - {fileID: 1879063366}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &586196826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7126720272886086998, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+  m_PrefabInstance: {fileID: 2875419599456857097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &586196827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586196826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaa9e85f2ccd744abebf7893db767ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  wanderRadius: 5
+  playerTransform: {fileID: 1720749978}
 --- !u!1 &1178268065
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4090046273917219899, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
       propertyPath: bulletPrefab
@@ -823,7 +843,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7126720272886086998, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 586196827}
   m_SourcePrefab: {fileID: 100100000, guid: 4bdd1b00f6fd87a438897b671936667c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
